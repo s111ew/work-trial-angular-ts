@@ -1,0 +1,107 @@
+/* CSS RESET */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+}
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+/* FONT IMPORT */
+@font-face {
+  font-family: "Calibri";
+  src: url(assets/fonts/Calibri.ttf);
+}
+
+/*GLOBAL COLOUR VARIABLES*/
+* {
+  --dn-green: rgb(137, 200, 46);
+  --dn-grey: #3c3c3b;
+  --dn-pink: rgb(231, 0, 100);
+  --dn-pink-selected: rgb(182, 0, 79);
+}
+
+/* MAIN STYLING */
+body {
+  font-family: "Calibri";
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--dn-grey);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  background-color: var(--dn-green);
+  padding: 40px 30px 15px 30px;
+  border: 5px solid var(--dn-grey);
+  border-radius: 35px;
+}
+
+.input-fields {
+  display: grid;
+  grid-template-columns: 40px 250px;
+  gap: 15px;
+}
+
+.input-fields > input {
+  border: none;
+}
+
+.form > button {
+  background-color: var(--dn-pink);
+  border: 1px solid var(--dn-grey);
+  border-radius: 4px;
+  color: var(--dn-grey);
+  width: 90px;
+}
+
+.form > button:hover {
+  cursor: pointer;
+  background-color: var(--dn-pink-selected);
+}
+
+.invalid {
+  background-color: var(--dn-pink);
+}
+
+.valid {
+  background-color: var(--dn-green);
+}
