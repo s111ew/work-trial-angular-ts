@@ -68,20 +68,20 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 15px;
   background-color: var(--dn-green);
   padding: 40px 30px 15px 30px;
   border: 5px solid var(--dn-grey);
   border-radius: 35px;
 }
 
-.input-fields {
+.input-field {
   display: grid;
   grid-template-columns: 40px 250px;
   gap: 15px;
+  margin-bottom: 5px;
 }
 
-.input-fields > input {
+.input-field > input {
   border: none;
 }
 
@@ -89,8 +89,9 @@ body {
   background-color: var(--dn-pink);
   border: 1px solid var(--dn-grey);
   border-radius: 4px;
-  color: var(--dn-grey);
+  color: white;
   width: 90px;
+  margin-top: 10px;
 }
 
 .form > button:hover {
@@ -98,10 +99,34 @@ body {
   background-color: var(--dn-pink-selected);
 }
 
+.error-msg {
+  font-size: 12px;
+  background-color: var(--dn-pink);
+  color: white;
+  padding: 0px 3px;
+  align-self: flex-start;
+  margin: 0px 0px 5px 56px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
 .invalid {
   background-color: var(--dn-pink);
+  color: white;
+}
+
+.invalid::placeholder {
+  color: white;
 }
 
 .valid {
   background-color: var(--dn-green);
+}
+
+@media (max-width: 500px) {
+  .input-fields {
+    grid-template-columns: 40px 150px;
+  }
 }

@@ -10,6 +10,7 @@ const checkInputIsValid = (input) => {
     if (!input.classList.contains("valid")) {
       input.classList.add("valid");
     }
+    removeErrorMessage(input);
     return;
   }
   if (input.classList.contains("valid")) {
@@ -18,6 +19,7 @@ const checkInputIsValid = (input) => {
   if (!input.classList.contains("invalid")) {
     input.classList.add("invalid");
   }
+  addErrorMessage(input);
 };
 
 const isValidInput = (userInput, id) => {
@@ -29,7 +31,7 @@ const isValidInput = (userInput, id) => {
       validity.nameIsValid = false;
       return false;
     }
-    const regex = /^[a-zA-Z]+\s+[a-zA-Z]+$/;
+    const regex = /^[A-Za-z]+ [A-Za-z][A-Za-z ]*$/;
     if (!regex.test(userInput)) {
       validity.nameIsValid = false;
       return false;
@@ -153,8 +155,34 @@ const canFormSubmit = () => {
       console.log("Form cannot be submitted, as information is not valid");
       return;
     }
+    event.preventDefault();
     console.log("Form data submitted successfully");
+    logData(event);
   });
+};
+
+const logData = (data) => {
+  const formData = data.srcElement;
+  for (let i = 0; i < 3; i++) {
+    console.log(`${formData[i].id}: ${formData[i].value}`);
+  }
+};
+
+//SHOULD REFACTOR THESE TWO FUNCTIONS AS THEY ARE REPEATED - COMBINE INTO A TOGGLE MESSAGE FUNCTION
+const removeErrorMessage = (input) => {
+  const id = input.id;
+  const errorMessage = document.querySelector(`.${id}-invalid`);
+  if (!errorMessage.classList.contains("hidden")) {
+    errorMessage.classList.add("hidden");
+  }
+};
+
+const addErrorMessage = (input) => {
+  const id = input.id;
+  const errorMessage = document.querySelector(`.${id}-invalid`);
+  if (errorMessage.classList.contains("hidden")) {
+    errorMessage.classList.remove("hidden");
+  }
 };
 
 window.onload = () => {

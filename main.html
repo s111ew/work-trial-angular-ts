@@ -9,21 +9,35 @@
   </head>
   <body>
     <form class="form" action="#">
-      <div class="input-fields"
+      <span class="name-invalid error-msg hidden"
+        >Enter your first and second names</span
+      >
+      <div class="input-field"
         ><label for="name">Name:</label
         ><input
           type="text"
           name="name"
           id="name"
           placeholder="Enter Your Name"
-          required />
+          required
+      /></div>
+      <span class="email-invalid error-msg hidden"
+        >Enter a valid email address that includes '@' and '.'</span
+      >
+      <div class="input-field">
         <label for="email">Email:</label
         ><input
           type="email"
           name="email"
           id="email"
           placeholder="Enter Your Email"
-          required />
+          required
+        />
+      </div>
+      <span class="cc-number-invalid error-msg hidden"
+        >Enter a valid Credit Card number</span
+      >
+      <div class="input-field">
         <label for="cc-number">Card:</label
         ><input
           type="tel"
@@ -32,7 +46,8 @@
           placeholder="Enter a Proxy Credit Card Number"
           maxlength="19"
           required
-      /></div>
+        />
+      </div>
       <button>Submit</button>
     </form>
   </body>
